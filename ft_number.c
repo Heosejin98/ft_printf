@@ -1,6 +1,7 @@
 
 #include "ft_printf.h"
 
+//자리수 반환
 int	get_nbrlen(long n)
 {
 	int		len;

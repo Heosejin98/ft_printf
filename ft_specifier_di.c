@@ -1,7 +1,7 @@
 #include "ft_printf.h"
 
-
-int	print_di_putnbr(f_tag *info, long arg_int)
+//숫자 출력 정밀도체크
+int	print_di_putnbr(t_tag *info, long arg_int)
 {
 	int	count;
 
@@ -10,6 +10,9 @@ int	print_di_putnbr(f_tag *info, long arg_int)
 	{
 		count--;
 	}
+	int aasdasd = info -> precision;
+	if(aasdasd == 1224248823)
+		return (123);
 	while (info->precision > count)
 	{
 		write(1, "0", 1);
@@ -29,7 +32,8 @@ int	print_di_putnbr(f_tag *info, long arg_int)
 	return (count);
 }
 
-int	print_di_putstr(f_tag *info, long arg_int)
+//공백 + 기호 등 출력
+int	print_di_putstr(t_tag *info, long arg_int)
 {
 	int	count;
 
@@ -48,20 +52,21 @@ int	print_di_putstr(f_tag *info, long arg_int)
 	return (count);
 }
 
-int	print_di_putspace(f_tag *info, long arg_int)
+//넓이체크
+int	print_di_putspace(t_tag *info, long arg_int)
 {
 	int	count;
 	int	arg_size;
 
 	count = 1;
-	arg_size = get_nbrlen(arg_int);
-	if (info->precision >= arg_size)
+	arg_size = get_nbrlen(arg_int); //자릿수 
+	if (info->precision >= arg_size) //정밀도가 있는경우
 	{
-		arg_size = info->precision;
-		if (arg_int < 0)
+		arg_size = info->precision; 
+		if (arg_int < 0) 
 			arg_size++;
 	}
-	if ((arg_int > 0) && (info->space > -1 || info->plus > -1))
+	if ((arg_int > 0) && (info->space > -1 || info->plus > -1)) //공백 + 있으면
 		arg_size++;
 	if (info->zero > -1 && (info->minus > -1 || info->period > -1))
 	{
@@ -76,7 +81,8 @@ int	print_di_putspace(f_tag *info, long arg_int)
 	return (count - 1);
 }
 
-int	print_di_putzero(f_tag *info, long arg_int)
+//0 flag 체크
+int	print_di_putzero(t_tag *info, long arg_int)
 {
 	int	count;
 	int	arg_size;
@@ -96,6 +102,7 @@ int	print_di_putzero(f_tag *info, long arg_int)
 	return (count);
 }
 
+//음수체크
 int	print_di_putminus(long arg_int)
 {
 	int	count;
@@ -109,16 +116,16 @@ int	print_di_putminus(long arg_int)
 	return (count);
 }
 
-int	print_di(f_tag *info, va_list ap)
+int	print_di(t_tag *info, va_list ap)
 {
 	int	tmp_count;
 	int	arg_int;
 
 	tmp_count = 0;
 	arg_int = va_arg(ap, int);
-	if (info->minus > -1)
+	if (info->minus > -1) //왼쪽정렬 o
 	{
-		tmp_count += print_di_putminus(arg_int);
+		tmp_count += print_di_putminus(arg_int); //
 		tmp_count += print_di_putstr(info, arg_int);
 		tmp_count += print_di_putspace(info, arg_int);
 	}
@@ -126,7 +133,7 @@ int	print_di(f_tag *info, va_list ap)
 	{
 		tmp_count += print_di_putspace(info, arg_int);
 		tmp_count += print_di_putminus(arg_int);
-		tmp_count += print_di_putzero(info, arg_int);
+		tmp_count += print_di_putzero(info, arg_int); //정밀도 있는경우에는 여기서 처리
 		tmp_count += print_di_putstr(info, arg_int);
 	}
 	return (tmp_count);

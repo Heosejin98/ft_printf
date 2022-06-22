@@ -1,7 +1,7 @@
 #include "ft_printf.h"
 
 
-int	print_specifier(f_tag *tag, va_list ap)
+int	print_specifier(t_tag *tag, va_list ap)
 {
 	int	tmp_count;
 
@@ -22,16 +22,16 @@ int	print_specifier(f_tag *tag, va_list ap)
 */
 int	flag_check(char *format, int *index, va_list ap)
 {
-	f_tag	*tag;
+	t_tag	*tag;
 	int		local_cnt;
 
 	local_cnt = 0;
 	(*index)++;
-	tag = malloc(sizeof(f_tag));
+	tag = malloc(sizeof(t_tag));
 	init_tag(tag);
 	while (ft_strchr("-0.# +123456789", format[*index]))
 	{
-		setFtag(tag, format, *index);
+		set_tag(tag, format, *index);
 		(*index)++;
 	}
 	if (ft_strchr("cspdiuxX%", format[*index]))

@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void	init_tag(f_tag *tag)
+void	init_tag(t_tag *tag)
 {
 	tag->hash = -1;
 	tag->minus = -1;
@@ -33,7 +33,7 @@ char	*ft_strchr(const char *str, int c)
 	return (NULL);
 }
 
-int	ifGetZero(f_tag *tag, int index)
+int	if_get_zero(t_tag *tag, int index)
 {
 	if (tag->period > -1)
 		tag->precision = tag->precision * 10;
@@ -45,10 +45,10 @@ int	ifGetZero(f_tag *tag, int index)
 }
 
 
-int	setFtag(f_tag *tag, char *format, int index)
+int	set_tag(t_tag *tag, char *format, int index)
 {
 	if (ft_strchr("0", format[index]))
-		return (ifGetZero(tag, index));
+		return (if_get_zero(tag, index));
 	if (ft_strchr("-.# +", format[index]))
 	{
 		if (format[index] == '-')
