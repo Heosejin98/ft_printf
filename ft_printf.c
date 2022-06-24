@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:11:27 by seheo             #+#    #+#             */
-/*   Updated: 2022/06/24 14:34:04 by seheo            ###   ########.fr       */
+/*   Updated: 2022/06/24 16:08:09 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ int	print_specifier(t_tag *tag, va_list ap)
 		local_cnt = print_u(tag, ap);
 	else if (tag->specifier == 'c')
 		local_cnt = print_c(tag, ap);
+	else if (tag->specifier == 's')
+		local_cnt = print_s(tag, ap);	
+	else if (tag->specifier == 'x' || tag->specifier == 'X' || tag->specifier == 'p')
+		local_cnt = print_xX(tag, ap);	
 	return (local_cnt);
 }
 

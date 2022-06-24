@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 11:52:36 by seheo             #+#    #+#             */
-/*   Updated: 2022/06/24 13:56:15 by seheo            ###   ########.fr       */
+/*   Updated: 2022/06/24 15:36:06 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	print_u(t_tag *info, va_list ap)
 {
-	int		local_cnt;
-	long	arg_int;
+	int				local_cnt;
+	unsigned int	arg_int;
 
 	local_cnt = 0;
 	arg_int = va_arg(ap, unsigned int);

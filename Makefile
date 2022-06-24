@@ -7,7 +7,10 @@ SRCS					= ft_printf.c \
 						ft_number_util.c \
 						ft_specifier_u.c \
 						ft_specifier_persent.c \
-						ft_print_c.c
+						ft_specifier_c.c \
+						ft_specifier_s.c \
+						ft_specifier_xX.c \
+						ft_xX_util.c
 
 BNS_SRCS				= \
 

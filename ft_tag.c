@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:21:05 by seheo             #+#    #+#             */
-/*   Updated: 2022/06/24 14:23:03 by seheo            ###   ########.fr       */
+/*   Updated: 2022/06/24 15:02:12 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ void	init_tag(t_tag *tag)
 	tag->specifier = -1;
 	tag->zero = -1;
 	tag->width = 0;
-	tag->precision = 0; 
+	tag->precision = 0;
 }
-
 
 char	*ft_strchr(const char *str, int c)
 {
