@@ -1,9 +1,11 @@
 NAME		= libftprintf.a
 
 SRCS					= ft_printf.c \
-						ft_tag.c\
-						ft_specifier_di.c\
-						ft_number.c
+						ft_specifier_di.c \
+						ft_tag.c \
+						ft_di_util.c \
+						ft_number_util.c \
+						ft_specifier_u.c
 
 BNS_SRCS				= \
 
@@ -23,10 +25,12 @@ endif
 
 all	:	$(NAME)
 
+HEADERS = includes/ft_printf.h
+
 $(NAME) : $(OBJ_FILES)
 	$(LIBC) $(NAME) $(OBJ_FILES)
 
-%.o			: %.c
+%.o	: %.c
 	gcc $(FLAGS) -c $^  -o $@
 
 
@@ -35,7 +39,7 @@ bonus :
 
 clean	:
 		rm -f $(OBJS) $(BNS_OBJS)
-
+ 
 fclean	:	clean
 		rm -f $(NAME)
 

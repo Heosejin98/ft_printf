@@ -1,36 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_specifier_di.c                                  :+:      :+:    :+:   */
+/*   ft_number.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 18:28:46 by seheo             #+#    #+#             */
-/*   Updated: 2022/06/24 12:36:36 by seheo            ###   ########.fr       */
+/*   Created: 2022/06/23 18:11:12 by seheo             #+#    #+#             */
+/*   Updated: 2022/06/23 18:11:35 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_di(t_tag *info, va_list ap)
+//자리수 반환
+int	get_nbrlen(long n)
 {
-	int	tmp_count;
-	int	arg_int;
+	int		len;
+	long	nbr;
 
-	tmp_count = 0;
-	arg_int = va_arg(ap, int);
-	if (info->minus > -1)//왼쪽정렬 o
+	nbr = n;
+	len = 0;
+	if (nbr == 0)
+		return (1);
+	else if (nbr < 0)
 	{
-		tmp_count += diu_minus(arg_int);
-		tmp_count += diu_str(info, arg_int);
-		tmp_count += diu_space(info, arg_int);
+		nbr = -nbr;
+		len++;
+	}
+	while (nbr)
+	{
+		nbr = nbr / 10;
+		len++;
+	}
+	return (len);
+}
+
+void	ft_putnbr(long n)
+{
+	char	c;
+
+	if (n < 0)
+		n = n * -1;
+	if (n >= 10)
+	{
+		ft_putnbr(n / 10);
+		c = '0' + n % 10;
+		write(1, &c, 1);
 	}
 	else
 	{
-		tmp_count += diu_space(info, arg_int);
-		tmp_count += diu_minus(arg_int);
-		tmp_count += diu_zero(info, arg_int);//0 flag
-		tmp_count += diu_str(info, arg_int);
+		c = '0' + n;
+		write(1, &c, 1);
 	}
-	return (tmp_count);
 }

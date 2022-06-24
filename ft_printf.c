@@ -1,21 +1,30 @@
-#include "ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/23 18:11:27 by seheo             #+#    #+#             */
+/*   Updated: 2022/06/24 14:02:40 by seheo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "ft_printf.h"
 
 int	print_specifier(t_tag *tag, va_list ap)
 {
-	int	tmp_count;
+	int	local_cnt;
 
-	tmp_count = 0;
+	local_cnt = 0;
 	if (tag->specifier == '%')
-	{	
-		tmp_count += 1;
-		write(1, "%", 1);	
-	}
+		local_cnt = print_percent(tag);
 	else if (tag->specifier == 'd' || tag->specifier == 'i')
-		tmp_count = print_di(tag, ap);
-	return (tmp_count);
+		local_cnt = print_di(tag, ap);
+	else if (tag->specifier == 'u')
+		local_cnt = print_u(tag, ap);
+	return (local_cnt);
 }
-
 
 /*
 
@@ -51,35 +60,35 @@ int	flag_check(char *format, int *index, va_list ap)
 
 int	format_check(char *format, va_list ap)
 {
-	int		charLenght;
+	int		char_lenght;
 	int		index;
 
-	charLenght = 0;
+	char_lenght = 0;
 	index = 0;
 	while (format[index])
 	{
 		if (format[index] == '%')
 		{
-			charLenght += flag_check(format, &index, ap);
+			char_lenght += flag_check(format, &index, ap);
 		}
 		else
 		{
 			write(1, &format[index], 1);
-			charLenght++;
+			char_lenght++;
 		}
 		index++;
 	}
-	return (charLenght);
+	return (char_lenght);
 }
 
-int ft_printf(const char* format, ...)
+int	ft_printf(const	char *format, ...)
 {
-    int     charLenght;
-    va_list ap;
+	int		char_lenght;
+	va_list	ap;
 
-    va_start(ap, format);
-    charLenght = format_check((char *)format, ap);
-    va_end(ap);
+	va_start(ap, format);
+	char_lenght = format_check((char *)format, ap);
+	va_end(ap);
 
-    return (charLenght);
+	return (char_lenght);
 }
