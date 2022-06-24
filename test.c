@@ -131,5 +131,28 @@ int main()
     printf("return : %d \n", a);
     printf("return : %d \n\n", b);
 
+    a = ft_printf("1 %X\n", 1232); 
+    b = printf("2 %X\n", 1232); 
+    printf("return : %d \n", a);
+    printf("return : %d \n\n", b);
+
+    a = ft_printf("1 %10X\n", 1232); 
+    b = printf("2 %10X\n", 1232); 
+    printf("return : %d \n", a);
+    printf("return : %d \n\n", b);
+
+    printf("\n---------------------p------------------\n");
+    int c = 2;
+    int *t = &c;
+    a = ft_printf("1 %p\n", t); 
+    b = printf("2 %p\n", t); 
+    printf("return : %d \n", a);
+    printf("return : %d \n\n", b);
+
+    a = ft_printf("1 %30p\n", t); 
+    b = printf("2 %30p\n", t); 
+    printf("return : %d \n", a);
+    printf("return : %d \n\n", b);
+
 
 }

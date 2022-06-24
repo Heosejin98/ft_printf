@@ -29,6 +29,7 @@ int		print_c(t_tag *tag, va_list ap);
 int		print_percent(t_tag *tag);
 int		print_s(t_tag *tag, va_list ap);
 int		print_xX(t_tag *tag, va_list ap);
+int		print_p(t_tag *tag, va_list ap);
 
 //ft_tag
 void	init_tag(t_tag *tag);

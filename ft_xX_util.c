@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 15:40:53 by seheo             #+#    #+#             */
-/*   Updated: 2022/06/24 16:15:16 by seheo            ###   ########.fr       */
+/*   Updated: 2022/06/24 16:54:29 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	get_hexa_len(t_tag *tag, unsigned long long n)
 		n = n / 16;
 		len++;
 	}
-	return (len - 1);
+	return (len);
 }
 
 void	ft_puthexa(unsigned long long n, char type)

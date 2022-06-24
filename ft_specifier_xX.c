@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 15:28:48 by seheo             #+#    #+#             */
-/*   Updated: 2022/06/24 16:10:44 by seheo            ###   ########.fr       */
+/*   Updated: 2022/06/24 16:55:25 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	xX_space(t_tag *tag, long arg_uint)
 	arg_size = get_hexa_len(tag, arg_uint);
 	if (tag->precision > arg_size)
 		arg_size = tag->precision;
-	if (tag->hash > -1 || tag->specifier == 'p')
+	if (tag->hash > -1 || tag-> specifier == 'p')
 		arg_size = arg_size + 2;
 	if (tag->zero > -1 && (tag->minus > -1 || tag->period > -1))
 	{
@@ -61,9 +61,10 @@ int	xX_hash(t_tag *tag, long arg_uint)
 	int	count;
 
 	count = 0;
-	if ((arg_uint != 0 && tag->hash > -1) || tag->specifier == 'p')
+	
+	if ((arg_uint != 0 && tag->hash > -1) || tag-> specifier == 'p')
 	{
-		if (tag->specifier == 'x' || tag->specifier == 'p')
+		if (tag->specifier == 'x' || tag-> specifier == 'p')
 		{
 			write(1, "0x", 2);
 			count = 2;
@@ -103,8 +104,9 @@ int	print_xX(t_tag *tag, va_list ap)
 	unsigned int	arg_uint;
 
 	local_count = 0;
+	
 	arg_uint = va_arg(ap, unsigned int);
-
+		
 	if (tag->minus > -1)
 	{
 		local_count += xX_hash(tag, arg_uint);
@@ -119,5 +121,5 @@ int	print_xX(t_tag *tag, va_list ap)
 		local_count += xX_print(tag, arg_uint);
 	}
 	local_count++;
-	return (local_count);
+	return (local_count - 1);
 }
