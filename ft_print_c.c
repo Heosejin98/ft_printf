@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 13:50:29 by seheo             #+#    #+#             */
-/*   Updated: 2022/06/24 13:58:32 by seheo            ###   ########.fr       */
+/*   Updated: 2022/06/24 14:33:15 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ int	print_c(t_tag *tag, va_list ap)
 	if (tag->minus > -1)
 	{
 		write(1, &arg_char, 1);
-		local_count += print_c_putspace(tag);
+		local_count += c_space(tag);
 	}
 	else
 	{
-		local_count += print_c_putspace(tag);
-		local_count += print_c_putzero(tag);
+		local_count += c_space(tag);
+		local_count += c_zero(tag);
 		write(1, &arg_char, 1);
 	}
 	local_count++;

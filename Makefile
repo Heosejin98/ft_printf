@@ -5,7 +5,9 @@ SRCS					= ft_printf.c \
 						ft_tag.c \
 						ft_di_util.c \
 						ft_number_util.c \
-						ft_specifier_u.c
+						ft_specifier_u.c \
+						ft_specifier_persent.c \
+						ft_print_c.c
 
 BNS_SRCS				= \
 

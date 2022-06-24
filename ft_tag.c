@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:21:05 by seheo             #+#    #+#             */
-/*   Updated: 2022/06/23 18:21:07 by seheo            ###   ########.fr       */
+/*   Updated: 2022/06/24 14:23:03 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int	if_get_zero(t_tag *tag, int index)
 		tag->zero = index;
 	return (1);
 }
-
 
 int	set_tag(t_tag *tag, char *format, int index)
 {

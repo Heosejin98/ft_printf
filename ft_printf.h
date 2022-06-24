@@ -25,6 +25,8 @@ int		format_check(char *format, va_list ap);
 
 int		print_di(t_tag *tag, va_list ap);
 int		print_u(t_tag *tag, va_list ap);
+int		print_c(t_tag *tag, va_list ap);
+int		print_percent(t_tag *tag);
 
 //ft_tag
 void	init_tag(t_tag *tag);
@@ -37,6 +39,9 @@ int		diu_str(t_tag *tag, long arg_int);
 int		diu_space(t_tag *tag, long arg_int);
 int		diu_zero(t_tag *tag, long arg_int);
 int		diu_minus(long arg_int);
+int		c_zero(t_tag *tag);
+int		c_space(t_tag *tag);
+int		percent_spacezero(t_tag *tag);
 
 //ft_number_util
 int		get_nbrlen(long n);

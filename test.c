@@ -65,5 +65,13 @@ int main()
     printf("return : %d \n", a);
     printf("return : %d \n", b);
 
-    printf("%-010%\n");
+    a = ft_printf("%10%\n");
+    b = printf("%10%\n");  
+    printf("return : %d \n", a);
+    printf("return : %d \n", b);
+
+    a = ft_printf("내꺼 %c\n", 'a');
+    b = printf("stdio %10c\n", 'a'); 
+    printf("return : %d \n", a);
+    printf("return : %d \n", b);
 }
