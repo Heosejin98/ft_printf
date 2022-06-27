@@ -1,7 +1,7 @@
 # ft_printf
 ###printf의 일부 기능 구현 
 
-## prinft format 형식 태그
+###prinft format 형식 태그
 
 <aside>
 📖 **#[flag] [width] [.precision(정밀도)] [length] 서식 문자(specifier)**
