@@ -1,10 +1,10 @@
 # ft_printf
-###printf의 일부 기능 구현 
+### printf의 일부 기능 구현 
 
-###prinft format 형식 태그
+### prinft format 형식 태그
 
 <aside>
-📖 **#[flag] [width] [.precision(정밀도)] [length] 서식 문자(specifier)**
+📖 ** # [flag] [width] [.precision(정밀도)] [length] 서식 문자(specifier)**
 
 </aside>
 
@@ -18,8 +18,8 @@
 | c | int 형으로 들어온 문자 출력 |
 | s | 문자열 출력 |
 | p | 포인터값을 16진수로 출력 |
-| x | int값을 부호없는 16진수로 출력 10~15은 'a'~'f'로 표시 |
-| X | int값을 부호없는 16진수로 출력 10~15은 'A'~'F'로 표시 |
+| x | int값을 부호없는 16진수로 출력 10 ~ 15은 'a' ~ 'f'로 표시 |
+| X | int값을 부호없는 16진수로 출력 10 ~ 15은 'A' ~ 'F'로 표시 |
 | % | %출력 |
 
 ## specifier 별 flag
