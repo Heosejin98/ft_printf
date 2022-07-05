@@ -1,4 +1,5 @@
 # ft_printf
+# 목표
 ### printf의 일부 기능 구현 
 
 ### prinft format 형식 태그
@@ -39,3 +40,7 @@
 # Flow Chart
 
 ![image](https://user-images.githubusercontent.com/61305083/175952126-3b422a19-94c2-4fd0-a507-d369205b61a1.png)
+
+# 정리
+---
+https://velog.io/@sejin3319/42Seoul-getnextline
